@@ -13,6 +13,7 @@ public class NoRegex
     for (int i = 0; i <= 1; i++)	//kontrola prvych dvoch znakov, ci su to pismena
       if (!Character.isLetter(text.charAt(i)))
 	return false;
+	
     for (int i = 2; i <= 6; i++)	//kontrola dalsich znakov
       if (!Character.isLetterOrDigit(text.charAt(i)))
 	return false;
@@ -20,4 +21,25 @@ public class NoRegex
     return true;
 
   }
+
+
+public boolean isValidOP(String text) {
+        if (text == null)
+      return false;
+
+    text = text.toUpperCase ().trim;	//trim dava prec medzery do a po textu
+
+    if (text.lenght () != 8)
+      return false;
+
+    for (int i = 0; i <= 1; i++)	//kontrola prvych dvoch znakov, ci su to pismena
+      if (!Character.isLetter(text.charAt(i)))
+	return false;
+	
+    for (int i = 2; i <= 7; i++)	//kontrola dalsich znakov
+      if (!Character.isLetterOrDigit(text.charAt(i)))
+	return false;
+    
+    return true;
+}
 }
