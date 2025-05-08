@@ -1,46 +1,68 @@
+/* Основной фон и выравнивание */
 body {
   margin: 0;
   padding: 0;
-  background: white;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: sans-serif;
+  background-color: white;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  flex-direction: column;
+  overflow: hidden;
+  cursor: none;
 }
 
+/* Контейнер с кнопкой и текстом */
 .container {
   text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
-button {
+/* Кнопка */
+#welcomeBtn {
+  padding: 12px 24px;
+  font-size: 18px;
   background-color: black;
   color: white;
   border: none;
-  padding: 15px 30px;
-  font-size: 1.2rem;
-  border-radius: 8px;
   cursor: pointer;
+  border-radius: 8px;
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+#welcomeBtn:hover {
   background-color: #333;
 }
 
+/* Текст приветствия */
 #welcomeText {
-  margin-top: 30px;
-  font-size: 1.4rem;
-  color: black;
+  margin-top: 24px;
+  font-size: 20px;
   opacity: 0;
-  transition: opacity 0.8s ease;
+  transform: translateY(10px);
+  transition: opacity 0.8s ease, transform 0.6s ease;
 }
 
-.visible {
+#welcomeText.visible {
   opacity: 1;
+  transform: translateY(0);
 }
 
 .hidden {
   opacity: 0;
+  pointer-events: none;
+}
+
+/* Кружок под курсором */
+.cursor-dot {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  pointer-events: none;
+  background-color: rgba(0, 0, 0, 0.2); /* "негатив" к белому фону */
+  mix-blend-mode: difference;
+  z-index: 1;
+  transition: transform 0.05s linear;
 }
