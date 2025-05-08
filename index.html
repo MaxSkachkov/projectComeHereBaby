@@ -8,6 +8,8 @@
 </head>
 <body>
 
+  <div class="cursor-dot"></div>
+
   <div class="container">
     <button id="welcomeBtn">Come here, baby</button>
     <p id="welcomeText" class="hidden">Добро пожаловать в ROBOTS COMPANY!</p>
@@ -16,11 +18,30 @@
   <script>
     const button = document.getElementById('welcomeBtn');
     const text = document.getElementById('welcomeText');
+    const cursorDot = document.querySelector('.cursor-dot');
 
+    // Плавное появление текста
     button.addEventListener('click', () => {
       text.classList.remove('hidden');
       text.classList.add('visible');
     });
+
+    // Обновление позиции курсора или пальца
+    function updateCursor(x, y) {
+      cursorDot.style.transform = `translate(${x - 30}px, ${y - 30}px)`;
+    }
+
+    // Для мыши
+    document.addEventListener('mousemove', (e) => {
+      updateCursor(e.clientX, e.clientY);
+    });
+
+    // Для пальца
+    document.addEventListener('touchmove', (e) => {
+      if (e.touches.length > 0) {
+        updateCursor(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    }, { passive: true });
   </script>
 
 </body>
