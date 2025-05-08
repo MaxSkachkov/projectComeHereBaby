@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ROBOTS COMPANY</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="container">
+    <button id="welcomeBtn">Come here, baby</button>
+    <p id="welcomeText" class="hidden">Добро пожаловать в ROBOTS COMPANY!</p>
+  </div>
+
+  <script>
+    const button = document.getElementById('welcomeBtn');
+    const text = document.getElementById('welcomeText');
+
+    button.addEventListener('click', () => {
+      text.classList.remove('hidden');
+      text.classList.add('visible');
+    });
+  </script>
+
+</body>
+</html>
